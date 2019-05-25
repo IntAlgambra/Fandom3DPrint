@@ -1,0 +1,12 @@
+content/
+.vscode/
+**/__pycache__
+**/migrations
+fprint/main/__pycache__/
+fprint/fprint/__pycache__/
+fprint/settings.txt
+fprint/settings.json
+fprint/db.sqlite3
+fprint/media/
+fprint/venv/
+*.pyc

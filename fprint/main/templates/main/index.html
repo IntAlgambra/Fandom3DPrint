@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--Custom css-->
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    <!--magnific-popup css-->
+    <link rel="stylesheet" href="{% static 'main/magnific-popup.css' %}">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="#" class="logo_link"><img src="{% static 'main/imgs/logo.png' %}" alt="logo" class="logo_img"></a>
+            <div class="navigation_content" id="nav_content">
+                <ul class="navigation_list">
+                    <li class="navigation_item"><a href="#">Главная</a></li>
+                    <li class="navigation_item"><a href="#gallery">Галерея</a></li>
+                    <li class="navigation_item"><a href="#prices">Цены</a></li>
+                    <li class="navigation_item"><a href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+            <button type="button" class="burger" onclick="showMenu()">
+                <img src="{% static 'main/imgs/hamburger_icon.svg' %}" alt="burger_menu_button">
+            </button>
+        </nav>
+    </header>
+
+    <section class="main">
+        <div class="about_us">
+            <h1>Fandom 3D Print</h1>
+            <div class="about_us_content">
+                <div class="about_us_item">
+                    <h3>3D печать:</h3>
+                    <ul class="about_us_list">
+                        <li class="about_us_list_item">- Архитектурные макеты</li>
+                        <li class="about_us_list_item">- Прототипы</li>
+                        <li class="about_us_list_item">- Детали Интерьера</li>
+                        <li class="about_us_list_item">- Элементы косплея</li>
+                    </ul>
+                </div>
+                <div class="about_us_item">
+                    <h3>3D моделирование:</h3>
+                    <ul class="about_us_list">
+                        <li class="about_us_list_item">- Создание 3D моделей по чертежам и эскизам</li>
+                        <li class="about_us_list_item">- Доработка 3D моделей</li>
+                        <li class="about_us_list_item">- Оптимизация изделий для печати</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about_us_buttons">
+                <a href="#print_popup" class="button about_us_button open-popup-link">Заказать печать</a>
+                <a href="#gallery" class="button about_us_button">Наши работы</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <h1>Наши работы:</h1>
+        <div class="gallery_container">
+            <div class="gallery_item_container"><img src="{% static 'main/imgs/gallery/furniture.png' %}" alt="3d_printed_stuff" class="gallery_img"></div>
+            <div class="gallery_item_container"><img src="{% static 'main/imgs/gallery/mercy.png' %}" alt="3d_printed_stuff" class="gallery_img"></div>
+            <div class="gallery_item_container"><img src="{% static 'main/imgs/gallery/opi.png' %}" alt="3d_printed_stuff" class="gallery_img"></div>
+            <div class="gallery_item_container"><img src="{% static 'main/imgs/gallery/rick_blaster.png' %}" alt="3d_printed_stuff" class="gallery_img"></div>
+            <div class="gallery_item_container"><img src="{% static 'main/imgs/gallery/rpi.png' %}" alt="3d_printed_stuff" class="gallery_img"></div>
+            <div class="gallery_item_container"><img src="{% static 'main/imgs/gallery/sbase.png' %}" alt="3d_printed_stuff" class="gallery_img"></div>
+        </div>
+    </section>
+
+    <section class="prices" id="prices">
+        <h1>Наши цены:</h1>
+        <div class="prices_card_container">
+            <div class="prices_card">
+                <div class="prices_card_content">
+                    <h3>3D печать</h3>
+                    <h2>От 5р/грамм</h2>
+                    <img src="{% static 'main/imgs/icons/3d_printing.svg' %}" alt="3d_printing_icon">
+                    <p>- Широкий выбор пластиков:ABS, PLA, PET-G, FLEX</p>
+                    <p>- Высокое качество поверхностей</p>
+                    <p>- Толщина слоя в зависимости от назначения изделиям</p>
+                </div>
+                <a href="#print_popup" class="button prices_card_button open-popup-link">Заказать 3D печать</a>
+            </div>
+            <div class="prices_card">
+                <div class="prices_card_content">
+                    <h3>3D моделирование</h3>
+                    <h2>От 100р/модель</h2>
+                    <img src="{% static 'main/imgs/icons/3d_modeling.svg' %}" alt="3d_printing_icon">
+                    <p>- Моделирование по Вашим чертежам и эскизам</p>
+                    <p>- Скидки при заказе 3D печати в Fandom3DPrint</p>
+                    <p>- Технические консультации</p>
+                    <p>- Оптимизация модели под технологии 3D печати</p>
+                </div>
+                <a href="#model_popup" class="button prices_card_button open-popup-link">Заказать 3D модель</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+        <div class="social_container">
+            <h1>Мы в социальных сетях:</h1>
+            <div class="social_icons">
+                <a href="https://vk.com/fanprint" class="social"><img src="{% static 'main/imgs/vk_icon.svg' %}" alt="vk_icon"></a>
+                <a href="https://www.instagram.com/fandom_3d_print/" class="social"><img src="{% static 'main/imgs/inst_icon.svg' %}" alt="instagramm_icon"></a>
+                <a href="#" class="social"><img src="{% static 'main/imgs/fb_icon.svg' %}" alt="facebook_icon"></a>
+            </div>
+        </div>
+        <div class="feedback_container">
+            <h1>Напишите нам:</h1>
+            <form enctype="multipart/form-data" action="/ask_question/" class="feedback" method="POST">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="email" name="email" placeholder="Ваша электронная почта" required>
+                <textarea name="message_text" id="message_text_id" cols="30" rows="10" placeholder="Задайте ваш вопрос" class="feedback_text"></textarea>
+                <div class="file_input_container">
+                    <input type="file" name="3d_file" id="file_input">
+                    <label for="file_input" class="button file_input_button">Выберите 3D файл</label>
+                </div>
+                <div class="captcha_container">
+                    {{form}}
+                    <button class="captcha-refresh">
+                        <img src="{% static 'main/imgs/icons/refresh.svg' %}" alt="refresh_icon" class="captcha_refresh_button">
+                    </button>
+                </div>
+                <input type="submit" class="button send_feedback_button">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <span>&copy; Fandom3DPrint, 2019</span>
+        <a href="">Наверх</a>
+    </footer>
+
+    <div id="print_popup" class="popup mfp-hide">
+        <h1>Заказать 3D печать:</h1>
+        <form enctype="multipart/form-data" action="/order_printing/" method="POST" class="order_form">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="text" name="email" placeholder="Ваша электронная почта" required>
+            <div class="select_container">
+                <label for="material_select">Материал:</label>
+                <select name="material" id="material_select">
+                    <option value="PLA">PLA</option>
+                    <option value="ABS">ABS</option>
+                    <option value="PETG">PET-G</option>
+                    <option value="NEYLON">Нейлон</option>
+                    <option value="FLEX">FLEX</option>
+                </select>
+            </div>
+            <div class="select_container">
+                <label for="quality">Выберите качество:</label>
+                <select name="quality" id="quality_select">
+                    <option value="HIGH">Высокое(печать слоем 0.1 мм)</option>
+                    <option value="MEDIUM">Среднее (печать слоем 0.2 мм)</option>
+                    <option value="LOW">Низкое (печать слоем 0.3 мм)</option>
+                </select>
+            </div>
+            <input type="text" name="color" placeholder="Желаемый цвет изделия">
+            <div class="file_input_container">
+                    <input type="file" name="3d_file" id="printing_file_input" required>
+                    <label for="printing_file_input" class="button file_input_button">Выберите 3D файл</label>
+            </div>
+            <div class="captcha_container">
+                {{form}}
+                <button class="captcha-refresh">
+                    <img src="{% static 'main/imgs/icons/refresh.svg' %}" alt="refresh_icon" class="captcha_refresh_button">
+                </button>
+            </div>
+            <input type="submit" class="button send_feedback_button">
+        </form>
+    </div>
+
+    <div id="model_popup" class="popup mfp-hide">
+        <h1>Заказать 3D моделирование:</h1>
+        <form enctype="multipart/form-data" action="/order_modeling/" method="POST" class="order_form">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Ваше имя">
+            <input type="text" name="email" placeholder="Ваша электронная почта">
+            <textarea name="model_description" id="model_description" rows="10" class="model_description" placeholder="Опишите требования к модели..."></textarea>
+            <div class="file_input_container">
+                    <input type="file" name="3d_file" id="modeling_file_input" required>
+                    <label for="modeling_file_input" class="button file_input_button">Выберите чертеж или эскиз</label>
+            </div>
+            <div class="captcha_container">
+                {{form}}
+                <button class="captcha-refresh">
+                    <img src="{% static 'main/imgs/icons/refresh.svg' %}" alt="refresh_icon" class="captcha_refresh_button">
+                </button>
+            </div>
+            <input type="submit" class="button send_feedback_button">
+        </form>
+    </div>
+    
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $('.captcha-refresh').click(function(){
+            var $form = $(this).parents('form');
+            var url = location.protocol + "//" + window.location.hostname + ":"
+                      + location.port + "/captcha/refresh/";
+    
+            // Make the AJAX-call
+            $.getJSON(url, {}, function(json) {
+                $form.find('input[name="captcha_0"]').val(json.key);
+                $form.find('img.captcha').attr('src', json.image_url);
+            });
+    
+            return false;
+        });
+    });
+    
+</script>
+
+<script>
+    function showMenu() {
+        var current_show = document.getElementById("nav_content");
+        if (current_show.style.display === "none") {
+            current_show.style.display = "flex";
+        }
+        else {
+            current_show.style.display = "none"
+        }
+    }
+</script>
+
+<!--magnific-popup js-->
+<script src="{% static 'main/js/jquery.magnific-popup.js' %}"></script>
+
+<script>
+    $('.open-popup-link').magnificPopup({
+        type:'inline',
+        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+    });  
+</script>
+
+</body>
+</html>
