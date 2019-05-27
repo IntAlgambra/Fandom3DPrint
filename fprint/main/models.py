@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from datetime import datetime
 
 class Question(models.Model):
@@ -6,7 +7,7 @@ class Question(models.Model):
     sender_email = models.EmailField()
     question_text = models.TextField()
     question_file = models.FileField(upload_to='clients_files/', blank=True)
-    question_time = models.DateTimeField(default=datetime.now())
+    question_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         question_info = 'sender: {0}, date: {1}'.format(self.sender_name, self.question_time)
@@ -34,7 +35,7 @@ class PrintingOrder(models.Model):
     quality = models.CharField(max_length = 6, choices = QUALITY)
     color = models.CharField(max_length=100, blank=True)
     order_file = models.FileField(upload_to='printing_orders_files')
-    order_time = models.DateTimeField(default=datetime.now())
+    order_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         order_info = 'sender: {0}, date: {1}'.format(self.sender_name, self.sender_email)
@@ -46,7 +47,7 @@ class ModelingOrder(models.Model):
     sender_email = models.EmailField()
     order_description = models.TextField(blank=True)
     order_file = models.FileField(upload_to='modeling_orders_files')
-    order_time = models.DateTimeField(default=datetime.now())
+    order_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         order_info = 'sender: {0}, date: {1}'.format(self.sender_name, self.sender_email)
