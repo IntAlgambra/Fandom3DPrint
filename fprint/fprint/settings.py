@@ -25,7 +25,7 @@ SECRET_KEY = '3dwil_xq4-8-630q1)$_w22a55l9kj!jithwao$*rf6-f@ii7y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['d01bcd64.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['5.253.60.32', '127.0.0.1']
 
 
 # Application definition
@@ -135,4 +135,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #CAPTCHA SETTINGS
 
-CAPTCHA_IMAGE_SIZE = (150, 50)
+CAPTCHA_IMAGE_SIZE = (100, 50)
