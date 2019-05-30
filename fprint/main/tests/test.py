@@ -5,6 +5,14 @@ import os
 
 HOST = 'http://d01bcd64.ngrok.io/'
 
+PROXY_LIST = [
+    '193.68.17.46:58558',
+    '93.77.115.167:58097',
+    '35.247.152.119:3128',
+    '212.13.103.54:53263',
+    '95.58.161.180:30937',
+]
+
 class TestMain(unittest.TestCase):
 
     @classmethod

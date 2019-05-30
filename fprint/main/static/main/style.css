@@ -521,3 +521,40 @@ footer span, footer a{
     color: white;
 
 }
+
+/* styles for info messages */
+
+.messages_container{
+    position: fixed;
+    top: 50px;
+    background-color: white;
+    width: 20vw;
+    margin-left: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 0.5px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.messages_container img{
+    width: 90%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.message_content{
+    margin-bottom: 10px;
+}
+
+.message_button{
+    width: 100%;
+    font-size: 1em;
+}
+
+@media screen and (max-width:540px){
+    .messages_container{
+        width: 70vw;
+    }
+}

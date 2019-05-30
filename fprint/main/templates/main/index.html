@@ -32,6 +32,23 @@
         </nav>
     </header>
 
+    {% if messages %}
+        <div class="messages_container" id="messages_container">
+            <div class="message_content">
+            {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <img src="{% static 'main/imgs/icons/accept_icon.svg' %}" alt="form acceptance icon">
+                {% endif %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <img src="{% static 'main/imgs/icons/error.svg' %}" alt="form error icon">
+                {% endif %}
+                {{message}}
+            {% endfor %}
+            </div>
+            <button type="button" class="button message_button" onclick="closeMessage()">Закрыть</button>
+        </div>
+    {% endif %}
+
     <section class="main">
         <div class="about_us">
             <h1>Fandom 3D Print</h1>
@@ -119,8 +136,8 @@
                 <input type="email" name="email" placeholder="Ваша электронная почта" required>
                 <textarea name="message_text" id="message_text_id" cols="30" rows="10" placeholder="Задайте ваш вопрос" class="feedback_text"></textarea>
                 <div class="file_input_container">
-                    <input type="file" name="3d_file" id="file_input">
-                    <label for="file_input" class="button file_input_button">Выберите 3D файл</label>
+                    <input type="file" name="3d_file" id="file_input" multiple onchange="processSelectedFiles(this)"/>
+                    <label for="file_input" class="button file_input_button" id="3d_file_label">Выберите 3D файл</label>
                 </div>
                 <div class="captcha_container">
                     {{form}}
@@ -165,7 +182,7 @@
             <input type="text" name="color" placeholder="Желаемый цвет изделия">
             <div class="file_input_container">
                     <input type="file" name="3d_file" id="printing_file_input" required>
-                    <label for="printing_file_input" class="button file_input_button">Выберите 3D файл</label>
+                    <label for="printing_file_input" class="button file_input_button" id="printing_file_label">Выберите 3D файл</label>
             </div>
             <div class="captcha_container">
                 {{form}}
@@ -186,7 +203,7 @@
             <textarea name="model_description" id="model_description" rows="10" class="model_description" placeholder="Опишите требования к модели..."></textarea>
             <div class="file_input_container">
                     <input type="file" name="3d_file" id="modeling_file_input" required>
-                    <label for="modeling_file_input" class="button file_input_button">Выберите чертеж или эскиз</label>
+                    <label for="modeling_file_input" class="button file_input_button" id="modeling_file_label">Выберите чертеж или эскиз</label>
             </div>
             <div class="captcha_container">
                 {{form}}
@@ -200,6 +217,7 @@
     
 <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 
+<!-- Скрипт для обновления капчи -->
 <script type="text/javascript">
 
     $(document).ready(function() {
@@ -221,7 +239,9 @@
     
 </script>
 
+Скрипт для открытия мобильного меню и закрытия информационных сообщени
 <script>
+
     function showMenu() {
         var current_show = document.getElementById("nav_content");
         if (current_show.style.display === "none") {
@@ -231,6 +251,52 @@
             current_show.style.display = "none"
         }
     }
+    function closeMessage() {
+        var message = document.getElementById("messages_container");
+        message.style.display = "none"
+    }
+
+    function closeMessageAfterTime() {
+        var message = document.getElementById("messages_container");
+        message.style.display = "none"
+    }
+
+    setTimeout(closeMessageAfterTime, 2000);
+</script>
+
+<!-- Скрипт для закрытия информационного окна в случае клика в любом месте страницы -->
+<script>
+    jQuery(function($){
+    $(document).mouseup(function (e){ // событие клика по веб-документу
+    var div = $("#messages_container"); // тут указываем ID элемента
+    if (!div.is(e.target) // если клик был не по нашему блоку
+        && div.has(e.target).length === 0) { // и не по его дочерним элементам
+        div.hide(); // скрываем его
+    }
+    });
+    });
+</script>
+
+<!-- Скрипт для отображения имени выбранного файла в форме -->
+<script>
+    $(document).ready(function(){
+        $('#file_input').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('#3d_file_label').html(fileName);
+        });
+    });
+    $(document).ready(function(){
+        $('#modeling_file_input').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('#modeling_file_label').html(fileName);
+        });
+    });
+    $(document).ready(function(){
+        $('#printing_file_input').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('#printing_file_label').html(fileName);
+        });
+    });
 </script>
 
 <!--magnific-popup js-->
